@@ -4,14 +4,24 @@ import { useState } from "react";
 export const useForm = (initialState: any) => {
   const [state, setState] = useState({ ...initialState });
 
-  function handleInputChange({
+  const handleInputChange = ({
     target: { name, value },
-  }: React.ChangeEvent<HTMLInputElement>) {
+  }: React.ChangeEvent<HTMLInputElement>) =>
     setState({ ...state, [name]: value });
-  }
+
+  const handleSelectChange = (name: string) => (value: string) =>
+    setState({ ...state, [name]: value });
+
+  const handleSelectClear = (prop: string) =>
+    setState({ ...state, [prop]: null });
+
+  const resetState = () => setState({ ...initialState });
 
   return {
     state,
     handleInputChange,
+    handleSelectChange,
+    handleSelectClear,
+    resetState,
   };
 };

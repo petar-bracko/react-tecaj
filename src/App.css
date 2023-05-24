@@ -32,6 +32,12 @@
 }
 .layout-sider {
   color: whitesmoke;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.layout-sider::-webkit-scrollbar {
+  display: none;
 }
 .layout-content {
   padding: 2.5rem;
@@ -51,4 +57,12 @@
 .layout-footer {
   text-align: center;
   user-select: none;
+}
+
+.state-form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.state-form {
+  width: 50%;
 }

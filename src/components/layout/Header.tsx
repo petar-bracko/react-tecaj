@@ -25,7 +25,7 @@ export const Header = () => {
         <div className="app-logo">app_logo.jpeg</div>
         <div className="user-controls">
           <Dropdown menu={{ items }}>
-            <span>{user.username || "unknown"}</span>
+            <span>{user.username}</span>
           </Dropdown>
         </div>
       </div>

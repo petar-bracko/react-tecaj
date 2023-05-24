@@ -6,7 +6,7 @@ export const About = () => {
 
   return (
     <>
-      <Typography.Title>About</Typography.Title>
+      <Typography.Title className="text-center">About</Typography.Title>
       <div>
         <p>{JSON.stringify(user, null, 2)}</p>
       </div>

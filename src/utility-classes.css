@@ -1,0 +1,17 @@
+.flex-cc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-center {
+  text-align: center;
+}
+.text-upper {
+  text-transform: uppercase;
+}
+.opacity-light {
+  opacity: 0.5;
+}
+.text-red {
+  color: red;
+}

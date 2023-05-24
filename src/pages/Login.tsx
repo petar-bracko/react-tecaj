@@ -3,17 +3,12 @@ import { useForm, useSubmit, useUserAuthContext } from "../hooks";
 import { validLogin } from "../helpers/validation";
 import { loginEndpoint, persistLogin } from "../helpers/utils";
 import { initialLoginData } from "../data/initial-states";
-import type { InputChange, LoginApi, LoginData } from "../types";
+import type { LoginApi, LoginStateHook } from "../types";
 import { Form, Input, Button, Typography, message, Spin } from "antd";
 
 export const Login = () => {
-  const {
-    state: loginData,
-    handleInputChange,
-  }: {
-    state: LoginData;
-    handleInputChange: InputChange;
-  } = useForm(initialLoginData);
+  const { state: loginData, handleInputChange }: LoginStateHook =
+    useForm(initialLoginData);
   const submit = useSubmit();
   const navigate = useNavigate();
   const { setUser } = useUserAuthContext();

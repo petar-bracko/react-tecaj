@@ -14,6 +14,10 @@ export const MainMenu = () => {
       key: "about-page",
       label: <NavLink to="/about">About</NavLink>,
     },
+    {
+      key: "forms-page",
+      label: <NavLink to="/forms">Forms</NavLink>,
+    },
   ];
 
   return (

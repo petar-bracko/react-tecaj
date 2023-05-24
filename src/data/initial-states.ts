@@ -1,4 +1,4 @@
-import type { AuthUser, LoginData } from "../types";
+import type { AuthUser, LoginData, StateForm } from "../types";
 
 export const initAuthUser: AuthUser = {
   username: "",
@@ -9,4 +9,18 @@ export const initAuthUser: AuthUser = {
 export const initialLoginData: LoginData = {
   username: "",
   password: "",
+};
+
+export const stateFormInitValues: StateForm = {
+  ime: "",
+  prezime: "",
+  pozicija: null,
+  work: "office",
+};
+
+export const useStateHellInitValues: StateForm = {
+  ime: "",
+  prezime: "",
+  pozicija: null,
+  work: "remote",
 };
