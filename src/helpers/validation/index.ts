@@ -1,1 +1,1 @@
-export { validLogin } from "./validateLoginForm";
+export { validateLogin } from "./validateLoginForm";

@@ -1,6 +1,6 @@
 import { LoginData } from "../../types";
 
-export function validLogin(submittedLoginData: LoginData) {
+export function validateLogin(submittedLoginData: LoginData) {
   const { username, password } = submittedLoginData;
 
   if (!username || !password) return false;

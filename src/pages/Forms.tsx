@@ -76,7 +76,7 @@ function FormWithUseState() {
                 { label: "Tester", value: "test" },
               ]}
               placeholder="Odaberite poziciju"
-              onChange={handleSelectChange("pozicija")}
+              onSelect={handleSelectChange("pozicija")}
             />
           </Form.Item>
           <Form.Item label="Work" required>
@@ -87,7 +87,7 @@ function FormWithUseState() {
                 { label: "Remote", value: "remote" },
               ]}
               placeholder="Odaberite rad"
-              onChange={handleSelectChange("work")}
+              onSelect={handleSelectChange("work")}
             />
           </Form.Item>
           <div className="text-center">
@@ -106,14 +106,7 @@ function FormWithUseState() {
 
 function FormWithUseReducer() {
   const [state, updateState] = useReducer(
-    (
-      prev: StateForm,
-      next:
-        | {
-            [key: string]: string | null;
-          }
-        | StateForm
-    ): StateForm => {
+    (prev: StateForm, next: Partial<StateForm>): StateForm => {
       const newState: StateForm = { ...prev, ...next };
 
       if (newState.prezime === "bracko") newState.pozicija = "frontend";
@@ -187,7 +180,7 @@ function FormWithUseReducer() {
                 { label: "Remote", value: "remote" },
               ]}
               placeholder="Odaberite rad"
-              onChange={handlePromjenuSelecta("work")}
+              onSelect={handlePromjenuSelecta("work")}
             />
           </Form.Item>
           <div className="text-center">

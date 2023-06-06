@@ -2,7 +2,10 @@ import type { LoginApi, LoginData } from "../../types";
 
 export const loginEndpoint = (loginData: LoginData) =>
   new Promise<LoginApi>((resolve, reject) => {
-    if (loginData.username !== "pbracko") {
+    if (
+      loginData.username !== "pbracko" ||
+      loginData.password !== "lozinka123"
+    ) {
       setTimeout(() => {
         reject({
           msg: "User not found.",
@@ -11,14 +14,15 @@ export const loginEndpoint = (loginData: LoginData) =>
           authenticated: false,
         });
       }, 3000);
-    } else {
-      setTimeout(() => {
-        resolve({
-          msg: "Login successful",
-          username: "pbracko",
-          token: "qwer-1234-asdf-0987",
-          authenticated: true,
-        });
-      }, 3000);
+      return;
     }
+
+    setTimeout(() => {
+      resolve({
+        msg: "Login successful",
+        username: "pbracko",
+        token: "qwer-1234-asdf-0987",
+        authenticated: true,
+      });
+    }, 3000);
   });

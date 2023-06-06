@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useForm, useSubmit, useUserAuthContext } from "../hooks";
-import { validLogin } from "../helpers/validation";
+import { validateLogin } from "../helpers/validation";
 import { loginEndpoint, persistLogin } from "../helpers/utils";
 import { initialLoginData } from "../data/initial-states";
 import type { LoginApi, LoginStateHook } from "../types";
@@ -14,8 +14,8 @@ export const Login = () => {
   const { setUser } = useUserAuthContext();
 
   function handleLoginSubmit() {
-    const isValid = validLogin(loginData);
-    if (isValid) {
+    const validLogin = validateLogin(loginData);
+    if (validLogin) {
       submit.startSubmit();
       loginEndpoint(loginData)
         .then((loginResponse) => {
@@ -51,6 +51,7 @@ export const Login = () => {
               value={loginData.username}
               name="username"
               onChange={handleInputChange}
+              autoFocus
             />
           </Form.Item>
           <Form.Item label="Password" required>
