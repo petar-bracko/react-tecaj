@@ -18,6 +18,10 @@ export const MainMenu = () => {
       key: "forms-page",
       label: <NavLink to="/forms">Forms</NavLink>,
     },
+    {
+      key: "pokemon-page",
+      label: <NavLink to="/pokemon">Pokemon API</NavLink>,
+    },
   ];
 
   return (
