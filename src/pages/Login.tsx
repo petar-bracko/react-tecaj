@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, useSubmit, useUserAuthContext } from "../hooks";
 import { validateLogin } from "../helpers/validation";
 import { loginEndpoint, persistLogin } from "../helpers/utils";
 import { initialLoginData } from "../data/initial-states";
-import type { LoginApi, LoginStateHook } from "../types";
+import type { AuthUser, LoginApi, LoginStateHook } from "../types";
 import { Form, Input, Button, Typography, message, Spin } from "antd";
 
 export const Login = () => {
@@ -37,6 +38,15 @@ export const Login = () => {
     }
     message.warning("Fill all form inputs.");
   }
+
+  useEffect(() => {
+    const lsUser = localStorage.getItem("rt-user");
+    if (lsUser) {
+      const parsedUser: AuthUser = JSON.parse(lsUser);
+      if (parsedUser.authenticated) navigate("/home", { replace: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="login-page">
