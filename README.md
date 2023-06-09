@@ -43,3 +43,9 @@ Creates reusable layout ('ProtectedRoutes') used by child routes ('Home' and 'Ab
 
 1. Export types RootState and AppDispatch from store.ts
 2. Implement custom hook for typed store selector and dispatch
+
+### 3.b Redux Persist
+
+1. Install `redux-persist`
+2. Implement store persistor in store.js/ts file
+3. Handle store clear/reset/purge events

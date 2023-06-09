@@ -4,7 +4,7 @@ import {
   increment,
   incrementByAmount,
 } from "../redux/features/counter/counterSlice";
-import { Typography, Button } from "antd";
+import { Typography, Button, Space } from "antd";
 
 export const ReduxConsumers = () => {
   const dispatch = useAppDispatch();
@@ -14,13 +14,20 @@ export const ReduxConsumers = () => {
       <Typography.Title className="text-center">
         Redux + Toolkit
       </Typography.Title>
-      <ConsumerOne />
-      <ConsumerTwo />
-      <br />
       <div>
-        <Button onClick={() => dispatch(increment())}>Increment</Button>
-        <Button onClick={() => dispatch(decrement())}>Decrement</Button>
-        <Button onClick={() => dispatch(incrementByAmount(5))}>Inc by 5</Button>
+        <Space direction="vertical">
+          <ConsumerOne />
+          <ConsumerTwo />
+        </Space>
+      </div>
+      <div>
+        <Space className="mt-1">
+          <Button onClick={() => dispatch(increment())}>Increment</Button>
+          <Button onClick={() => dispatch(decrement())}>Decrement</Button>
+          <Button onClick={() => dispatch(incrementByAmount(5))}>
+            Inc by 5
+          </Button>
+        </Space>
       </div>
     </>
   );
