@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { About, Forms, Home, Login, Pokemon } from "../pages";
+import { About, Forms, Home, Login, Pokemon, ReduxConsumers } from "../pages";
 import { ProtectedRoutes } from "./ProtectedRoutes";
 
 export const Router = () => (
@@ -11,6 +11,7 @@ export const Router = () => (
         <Route path="/about" element={<About />} />
         <Route path="/forms" element={<Forms />} />
         <Route path="/pokemon" element={<Pokemon />} />
+        <Route path="/redux" element={<ReduxConsumers />} />
       </Route>
       <Route path="*" element={<Navigate to="/login" />} />
     </Routes>

@@ -22,6 +22,10 @@ export const MainMenu = () => {
       key: "pokemon-page",
       label: <NavLink to="/pokemon">Pokemon API</NavLink>,
     },
+    {
+      key: "redux-page",
+      label: <NavLink to="/redux">Redux</NavLink>,
+    },
   ];
 
   return (
