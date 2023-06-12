@@ -26,6 +26,10 @@ export const MainMenu = () => {
       key: "redux-page",
       label: <NavLink to="/redux">Redux</NavLink>,
     },
+    {
+      key: "zustand-page",
+      label: <NavLink to="/zustand">Zustand</NavLink>,
+    },
   ];
 
   return (

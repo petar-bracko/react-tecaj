@@ -49,3 +49,9 @@ Creates reusable layout ('ProtectedRoutes') used by child routes ('Home' and 'Ab
 1. Install `redux-persist`
 2. Implement store persistor in store.js/ts file
 3. Handle store clear/reset/purge events
+
+## 4. Zustand
+
+1. Install `zustand`
+2. Docs: https://github.com/pmndrs/zustand
+3. Store is custom hook, no need for providers, boilerplate, etc.

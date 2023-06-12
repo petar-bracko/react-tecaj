@@ -1,6 +1,14 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { About, Forms, Home, Login, Pokemon, ReduxConsumers } from "../pages";
 import { ProtectedRoutes } from "./ProtectedRoutes";
+import {
+  About,
+  Forms,
+  Home,
+  Login,
+  Pokemon,
+  ReduxConsumers,
+  ZustandConsumer,
+} from "../pages";
 
 export const Router = () => (
   <BrowserRouter>
@@ -12,6 +20,7 @@ export const Router = () => (
         <Route path="/forms" element={<Forms />} />
         <Route path="/pokemon" element={<Pokemon />} />
         <Route path="/redux" element={<ReduxConsumers />} />
+        <Route path="/zustand" element={<ZustandConsumer />} />
       </Route>
       <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
