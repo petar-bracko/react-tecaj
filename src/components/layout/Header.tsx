@@ -1,4 +1,4 @@
-import { useLogout, useUserAuthContext } from "../../hooks";
+import { useAppSelector, useLogout } from "../../hooks";
 import { Layout, Dropdown } from "antd";
 import type { MenuProps } from "antd";
 
@@ -6,7 +6,8 @@ const { Header: AntdHeader } = Layout;
 
 export const Header = () => {
   const logout = useLogout();
-  const { user } = useUserAuthContext();
+  // const { user } = useUserAuthContext();
+  const reduxUser = useAppSelector((state) => state.slices.user);
 
   const items: MenuProps["items"] = [
     {
@@ -25,7 +26,7 @@ export const Header = () => {
         <div className="app-logo">app_logo.jpeg</div>
         <div className="user-controls">
           <Dropdown menu={{ items }}>
-            <span>{user.username}</span>
+            <span>{reduxUser.username}</span>
           </Dropdown>
         </div>
       </div>

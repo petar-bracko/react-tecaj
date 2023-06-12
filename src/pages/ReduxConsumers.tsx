@@ -34,13 +34,13 @@ export const ReduxConsumers = () => {
 };
 
 function ConsumerOne() {
-  const counter = useAppSelector((state) => state.counter.value);
+  const counter = useAppSelector((state) => state.slices.counter.value);
 
   return <div>Consumer one count: {counter}</div>;
 }
 
 function ConsumerTwo() {
-  const counter = useAppSelector((state) => state.counter.value);
+  const counter = useAppSelector((state) => state.slices.counter.value);
 
   return <div>Consumer two count: {counter}</div>;
 }

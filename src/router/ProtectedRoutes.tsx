@@ -1,40 +1,20 @@
-import { useEffect } from "react";
-import { Navigate, useLocation } from "react-router-dom";
-import { useUserAuthContext } from "../hooks";
-import { initAuthUser } from "../data/initial-states";
+import { Navigate } from "react-router-dom";
+import { useAppSelector } from "../hooks";
 import { Content, Footer, Header, MainMenu } from "../components/layout";
-import type { AuthUser } from "../types";
 import { Layout as AntdLayout, message } from "antd";
+import { useEffect } from "react";
 
 export const ProtectedRoutes = () => {
-  const { user, setUser } = useUserAuthContext();
-  const location = useLocation();
+  const reduxUser = useAppSelector((state) => state.slices.user);
 
-  const lsUser = localStorage.getItem("rt-user");
-
-  useEffect(
-    function rehydrateContext() {
-      if (!lsUser) {
-        // ls delete
-        message.error("No user data found.");
-        setUser({ ...initAuthUser });
-        return;
-      }
-      if (!user.authenticated) {
-        // full page reload
-        if (lsUser) {
-          const parsedLsUser: AuthUser = JSON.parse(lsUser);
-          setUser({ ...parsedLsUser });
-        } else {
-          message.error("No user data found.");
-        }
-      }
-    },
+  useEffect(() => {
+    if (!reduxUser.authenticated) {
+      message.warning("Unknown user data. Please login");
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [location]
-  );
+  }, []);
 
-  return lsUser ? (
+  return reduxUser.authenticated ? (
     <AntdLayout className="layout-parent">
       <Header />
       <AntdLayout>

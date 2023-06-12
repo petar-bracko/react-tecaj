@@ -5,13 +5,13 @@ type Counter = {
   value: number;
 };
 
-const initCounterState: Counter = {
-  value: 10,
+const initialState: Counter = {
+  value: 0,
 };
 
 export const counterSlice = createSlice({
   name: "counter",
-  initialState: { ...initCounterState },
+  initialState,
   reducers: {
     increment: (state) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -27,7 +27,7 @@ export const counterSlice = createSlice({
     incrementByAmount: (state, action: PayloadAction<number>) => {
       state.value += action.payload;
     },
-    resetState: () => ({ ...initCounterState }),
+    resetState: () => ({ ...initialState }),
   },
 });
 
